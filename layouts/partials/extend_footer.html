@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     codeBlocks.forEach(block => {
         // Only add toggle interaction if the block exceeds height cap
-        if (block.scrollHeight > 320) {
+        if (block.scrollHeight > 500) {
             block.style.cursor = 'pointer';
 
             block.addEventListener('click', (e) => {

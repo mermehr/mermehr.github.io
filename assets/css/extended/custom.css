@@ -26,6 +26,12 @@
     margin-bottom: 0.5rem;
 }
 
+.post-content h3 {
+    font-size: 1.15rem;
+    margin-top: 1.05rem;
+    margin-bottom: 0.3rem;
+}
+
 /* Collapse long code blocks */
 .post-content pre {
     max-height: 320px;

