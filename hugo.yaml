@@ -1,0 +1,22 @@
+baseURL: "https://mermehr.github.io/"
+languageCode: "en-us"
+title: "mermehr root notes"
+theme: "PaperMod"
+
+params:
+  defaultTheme: "dark"
+  showCodeCopyButtons: true
+  showReadingTime: true
+  disableSpecial1stPost: true
+  homeInfoParams:
+    Title: "Execution Logs & Walkthroughs"
+    Content: "CTF notes, tool labs, and offensive security research."
+
+menu:
+  main:
+    - name: Posts
+      url: /
+      weight: 10
+    - name: Tags
+      url: /tags
+      weight: 20
