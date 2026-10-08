@@ -1,0 +1,15 @@
+/* Widen the main content container */
+:root {
+    --main-width: 1100px; /* Default is 840px; set to 1000px-1200px based on preference */
+}
+
+/* Ensure full width utilization for post content and code blocks */
+.post-content {
+    max-width: var(--main-width);
+}
+
+/* Prevent horizontal clipping on long command-line strings */
+.post-content pre {
+    max-width: 100%;
+    overflow-x: auto;
+}
