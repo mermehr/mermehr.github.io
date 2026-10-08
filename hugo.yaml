@@ -15,7 +15,7 @@ params:
 menu:
   main:
     - name: Posts
-      url: /
+      url: /posts
       weight: 10
     - name: Tags
       url: /tags
