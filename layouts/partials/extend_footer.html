@@ -1,0 +1,24 @@
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // Target code blocks in post content
+    const codeBlocks = document.querySelectorAll('.post-content pre');
+
+    codeBlocks.forEach(block => {
+        // Only add toggle interaction if the block exceeds height cap
+        if (block.scrollHeight > 320) {
+            block.style.cursor = 'pointer';
+
+            block.addEventListener('click', (e) => {
+                // Ignore clicks on PaperMod's built-in copy button
+                if (e.target.classList.contains('copy-code') || e.target.parentElement.classList.contains('copy-code')) {
+                    return;
+                }
+                block.classList.toggle('expanded');
+            });
+        } else {
+            // Remove fade hint if the block isn't tall enough to collapse
+            block.classList.add('expanded');
+        }
+    });
+});
+</script>

@@ -1,15 +1,48 @@
-/* Widen the main content container */
-:root {
-    --main-width: 1100px; /* Default is 840px; set to 1000px-1200px based on preference */
+/* Header size adjustments */
+.post-content h1 {
+    font-size: 1.65rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
 }
 
-/* Ensure full width utilization for post content and code blocks */
-.post-content {
-    max-width: var(--main-width);
+.post-content h2 {
+    font-size: 1.35rem;
+    margin-top: 1.25rem;
+    margin-bottom: 0.5rem;
 }
 
-/* Prevent horizontal clipping on long command-line strings */
+/* Collapse long code blocks */
 .post-content pre {
-    max-width: 100%;
-    overflow-x: auto;
+    max-height: 320px;
+    overflow-y: hidden;
+    position: relative;
+    transition: max-height 0.3s ease-in-out;
+}
+
+/* Add a visual indicator fade on collapsed code blocks */
+.post-content pre::after {
+    content: "Click block to expand / collapse log";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 32px;
+    background: linear-gradient(transparent, var(--code-bg, #1e1e1e));
+    color: var(--secondary, #888);
+    font-size: 0.75rem;
+    text-align: right;
+    padding-right: 12px;
+    line-height: 36px;
+    pointer-events: none;
+    opacity: 0.9;
+}
+
+/* Expanded state when clicked */
+.post-content pre.expanded {
+    max-height: none;
+    overflow-y: visible;
+}
+
+.post-content pre.expanded::after {
+    display: none;
 }
