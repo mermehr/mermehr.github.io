@@ -13,6 +13,7 @@ params:
   ShowPostNavLinks: true
   ShowBreadCrumbs: true
   ShowCodeCopyButtons: true
+  ShowToc: true
   homeInfoParams:
     Title: "Execution Logs & Walkthroughs"
     Content: "CTF notes, tool labs, and offensive security research."
@@ -30,3 +31,6 @@ menu:
     - name: Tags
       url: /tags
       weight: 20
+    - name: About
+      url: /about/
+      weight: 30

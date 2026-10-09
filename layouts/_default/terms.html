@@ -1,0 +1,52 @@
+{{- define "main" }}
+{{- if .Title }}
+<header class="page-header">
+  <h1>{{ .Title }}</h1>
+  {{- if .Description }}
+  <div class="post-description">
+    {{ .Description }}
+  </div>
+  {{- end }}
+</header>
+{{- end }}
+
+<!-- Search / Filter Input -->
+<div style="margin-bottom: 1.5rem;">
+  <input type="text" id="tag-filter" placeholder="Filter tags..." 
+    style="width: 100%; padding: 10px 14px; font-size: 0.95rem; border-radius: 6px; border: 1px solid var(--border); background: var(--entry); color: var(--primary); outline: none;">
+</div>
+
+<ul class="terms-tags" id="tags-list">
+  {{- $type := .Type }}
+  {{- range $key, $value := .Data.Terms.ByCount }}
+  {{- $name := .Name }}
+  {{- $count := .Count }}
+  {{- with $.Site.GetPage (printf "/%s/%s" $type $name) }}
+  <li class="tag-item">
+    <a href="{{ .Permalink }}">{{ .Name }} <sup><strong><sup>{{ $count }}</sup></strong></sup></a>
+  </li>
+  {{- end }}
+  {{- end }}
+</ul>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const filterInput = document.getElementById('tag-filter');
+  const tagItems = document.querySelectorAll('#tags-list .tag-item');
+
+  if (filterInput) {
+    filterInput.addEventListener('input', (e) => {
+      const query = e.target.value.toLowerCase().trim();
+      tagItems.forEach(item => {
+        const text = item.textContent.toLowerCase();
+        if (text.includes(query)) {
+          item.style.display = '';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+  }
+});
+</script>
+{{- end }}
