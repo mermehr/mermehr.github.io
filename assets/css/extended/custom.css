@@ -15,21 +15,21 @@
 }
 /* Header size adjustments */
 .post-content h1 {
-    font-size: 1.65rem;
+    font-size: 1.75rem;
     margin-top: 1.5rem;
     margin-bottom: 0.75rem;
 }
 
 .post-content h2 {
-    font-size: 1.35rem;
+    font-size: 1.50rem;
     margin-top: 1.25rem;
     margin-bottom: 0.5rem;
 }
 
 .post-content h3 {
-    font-size: 1.15rem;
-    margin-top: 1.05rem;
-    margin-bottom: 0.3rem;
+    font-size: 1.25rem;
+    margin-top: 1.15rem;
+    margin-bottom: 0.4rem;
 }
 
 /* Collapse long code blocks */
