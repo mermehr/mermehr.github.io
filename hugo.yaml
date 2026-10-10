@@ -1,6 +1,6 @@
 baseURL: "https://mermehr.github.io/"
 languageCode: "en-us"
-title: "mermehr root notes"
+title: "mermehr - root notes"
 theme: "PaperMod"
 
 params:
@@ -15,7 +15,7 @@ params:
   ShowCodeCopyButtons: true
   ShowToc: true
   homeInfoParams:
-    Title: "Execution Logs & Walkthroughs"
+    Title: "Technical Guides & Execution Logs"
     Content: "CTF notes, tool labs, and offensive security research."
 
 taxonomies:
