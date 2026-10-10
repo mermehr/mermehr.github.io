@@ -12,11 +12,6 @@ tags:
   - secretsdump
   - kerberos
 ---
-# Resourced - OffSec PG Walkthrough
-## Lab Info
-
-![](./index-1791487551293.png)
-
 Resourced shows how null session enumeration can reveal cleartext password in a user description, this will grant initial low-privileged domain access. Further share enumeration will uncover an old offline password audit containing registry hives and an `ntds.dit` backup, allowing offline credential extraction. Using the extracted hashes to spray the domain yields access to a user account with `GenericAll` control over the Domain Controller. Finally, a Resource-Based Constrained Delegation (RBCD) attack is leveraged via Kerberos S4U extensions to impersonate the Domain Admin and fully compromise the target.
 ## Recon
 ### Initial Scan
@@ -163,7 +158,6 @@ getting file \Active Directory\ntds.jfm of size 16384 as Active Directory/ntds.j
 getting file \registry\SECURITY of size 65536 as registry/SECURITY (369.9 KiloBytes/sec) (average 3423.0 KiloBytes/sec)
 getting file \registry\SYSTEM of size 16777216 as registry/SYSTEM (4122.8 KiloBytes/sec) (average 3671.8 KiloBytes/sec)
 ```
-
 ### NTDS Extraction
 
 With **ntds.dit** and the hives, we can extract the domain hashes locally with **secretsdump.py**.
@@ -216,14 +210,13 @@ User `L.Livingstone` authenticates successfully with hash `19a3a7550ce8c505c2d46
 Reviewing user information and permission in **Bloodhoud**, we'll see user has `GenericAll` over `RESOURCEDC`, this lines us up for a Resource-Based Constrained Delegation (RBCD) attack against the DC.
 
 ![](./index-1791497017055.png)
-
 ## Privilege Escalation: RBCD Attack
 
 Resource Based Constrained Delegation flips traditional Kerberos delegation. Instead of asking a Domain Admin to configure delegation, the owner of a target computer gets to decide who can delegate to it by editing its `msDS-AllowedToActOnBehalfOfOtherIdentity` attribute.
 
 If a low-privileged account has write rights over a target machine object (GenericAll), we can tell that target to trust a fake computer account that we control. From there, we can request a Kerberos service ticket for any user including Administrator against that machine.
+### Attack Chain
 
-### Attack Flow
 1. Create a Fake Machine Account
 2. Configure the Delegation Trust
 3. Request the Impersonation Ticket

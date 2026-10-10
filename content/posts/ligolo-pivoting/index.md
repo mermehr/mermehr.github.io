@@ -1,5 +1,6 @@
 ---
-title: Pivoting, Tunneling & Port Forwarding
+title: Pivoting, Tunneling & Port Forwarding – Operator Notes from HTB Academy
+description: A hands‑on how‑to and post‑action report for multi‑hop tunneling and manual routing
 date: 2026-04-08
 draft: false
 tags:
@@ -8,15 +9,6 @@ tags:
   - active-directory
   - ligolo-ng
 ---
-
-# Pivoting, Tunneling & Port Forwarding – Practical Operator Notes from HTB Academy
-
-## A hands‑on how‑to and post‑action report for multi‑hop tunneling and manual routing
-
----
-
-### Introduction
-
 Pivoting labs often feel prescriptive, walking through a fixed sequence of tunneling tools like SSH forwarding, sshuttle, Meterpreter autoroute, or Chisel to demonstrate lateral movement across segmented networks.
 
 Those techniques are valuable, but in real operations, you rarely follow a clean playbook. Tools fail. Routes break. File transfers get flagged. And sometimes, the fastest path is the one you **build manually**.
