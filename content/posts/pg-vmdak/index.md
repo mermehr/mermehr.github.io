@@ -19,7 +19,12 @@ Enumerating system users allows us to use credential reuse to move laterally and
 
 ## Recon
 ### Nmap Scan
-Initial **Nmap** scans reveal standard Active Directory services on the target.
+```bash
+$ nmap -Pn -v -p- --max-retries 1 --min-rate 1000 192.168.167.103
+
+$ nmap -Pn -n -sV -sC -p 21,22,80,9443 192.168.167.103
+```
+
 ```bash
 PORT     STATE SERVICE  VERSION
 21/tcp   open  ftp      vsftpd 3.0.5

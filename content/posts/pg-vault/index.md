@@ -12,11 +12,12 @@ tags:
 ---
 Vault Lab demonstrates gaining initial access through NTLMv2 theft using a malicious .lnk attack on a writable SMB share. Due to excessive user permissions, privilege escalation on this machine can be done a number of ways. In this instance we’ll escalate privileges by abusing the **Server Operators** group.
 
-![[pg-vault/183ff0e7555d7896ab108e0a0dd04dd0.png]]
+![[183ff0e7555d7896ab108e0a0dd04dd0.png]]
 
 ## Recon
 ### Initial Scan
 
+Initial **Nmap** scans reveals standard Active Directory services on the target.
 ```bash
 nmap -Pn -sC -sV -v -oA nmap 192.168.239.172
 ```

@@ -18,7 +18,7 @@ Resourced shows how null session enumeration can reveal cleartext password in a 
 ## Recon
 ### Initial Scan
 
-Initial **Nmap** scans reveals standard Active Directory services on the target
+Initial **Nmap** scans reveals standard Active Directory services on the target.
 ```bash
 $ nmap -Pn -v -p- --max-retries 1 --min-rate 1000 192.168.247.175
 

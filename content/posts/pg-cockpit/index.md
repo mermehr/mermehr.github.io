@@ -17,6 +17,12 @@ Cockpit demonstrates how a SQLi vulnerability and insecure credential storage ca
 ## Recon
 ### Nmap scan
 ```bash
+$ nmap -Pn -v -p- --max-retries 1 --min-rate 1000 192.168.210.10
+
+$ nmap -Pn -n -sV -sC -p 22,80,9090 192.168.210.10
+```
+
+```bash
 PORT     STATE SERVICE VERSION
 22/tcp   open  ssh     OpenSSH 8.2p1 Ubuntu 4ubuntu0.5 (Ubuntu Linux; protocol 2.0)
 | ssh-hostkey:
@@ -33,7 +39,7 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 
 ### HTTP Port 9090
 
-This leads to a Cockpit administration page for the web service. No immediate vulnerabilities can be found, so we'll move on for now.
+HTTP on port 9090 leads to a Cockpit administration page for the web service. No immediate vulnerabilities can be found, so we'll move on for now.
 ![](./Cockpit-1791646142339.png)
 ## Initial Access - SQLi Information Disclosure
 ### HTTP Port 80
