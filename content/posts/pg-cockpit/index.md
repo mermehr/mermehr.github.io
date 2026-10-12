@@ -10,7 +10,10 @@ tags:
   - sudo
   - web
 ---
-Blaze demonstrates how a SQLi vulnerability and insecure credential storage can allow an attacker to move laterally into the system, gaining user-level write access and exploiting weak SSH security to obtain a fully interactive shell. As the compromised user, a sudo backup command containing a wildcard injection vulnerability can then be found and exploited, leading to full root access.
+Cockpit demonstrates how a SQLi vulnerability and insecure credential storage can allow an attacker to move laterally into the system, gaining user-level write access and exploiting weak SSH security to obtain a fully interactive shell. As the compromised user, a sudo backup command containing a wildcard injection vulnerability can then be found and exploited, leading to full root access.
+
+![](./index-1791757522515.png)
+
 ## Recon
 ### Nmap scan
 ```bash
