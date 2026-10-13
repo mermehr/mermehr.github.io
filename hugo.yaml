@@ -1,6 +1,6 @@
 baseURL: "https://mermehr.github.io/"
 languageCode: "en-us"
-title: "mermehr - root notes"
+title: "mermehr's blog"
 theme: "PaperMod"
 
 params:
