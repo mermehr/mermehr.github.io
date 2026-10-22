@@ -2,7 +2,7 @@
 IP: 10.129.161.198
 title: DevHub - HTB Walkthrough
 description:
-date: 2026-10-13
+date: 2026-10-21
 draft: false
 tags:
   - htb

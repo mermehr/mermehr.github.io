@@ -1,6 +1,6 @@
 ---
 title: Nara - OffSec PG Walkthrough
-date: 2026-10-21
+date: 2026-10-13
 draft: false
 tags:
   - offsec
