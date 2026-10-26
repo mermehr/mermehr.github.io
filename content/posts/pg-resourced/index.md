@@ -12,6 +12,8 @@ tags:
   - secretsdump
   - kerberos
 ---
+## Machine Summary
+
 Resourced shows how null session enumeration can reveal cleartext password in a user description, this will grant initial low-privileged domain access. Further share enumeration will uncover an old offline password audit containing registry hives and an `ntds.dit` backup, allowing offline credential extraction. Using the extracted hashes to spray the domain yields access to a user account with `GenericAll` control over the Domain Controller. Finally, a Resource-Based Constrained Delegation (RBCD) attack is leveraged via Kerberos S4U extensions to impersonate the Domain Admin and fully compromise the target.
 
 ![](index-1791487551293.png)

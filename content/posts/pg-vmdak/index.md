@@ -11,6 +11,8 @@ tags:
   - port-forward
   - disclosure
 ---
+## Machine Summary
+
 Vmdak focuses mainly on web enumeration and exploitation. We first discover information disclosure on an FTP service, then find a web application on port 9443 with an SQLi vulnerability in its login form. Gaining access to the administration panel exposes another user's credentials stored in a profile description. From there, we exploit a file upload vulnerability via the controlled user's profile picture to land an initial shell.
 
 Enumerating system users allows us to use credential reuse to move laterally and gain SSH access as a local user. We then discover an internal Jenkins instance running on port 8080 and set up an SSH local port forward to reach it. Enumerating Jenkins reveals it is vulnerable to CVE-2024-23897, allowing us to read the initial admin password, log in, and abuse the internal Groovy scripting engine to drop a shell as root.

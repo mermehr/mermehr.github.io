@@ -14,9 +14,11 @@ tags:
   - ssh
   - api
 ---
+## Machine Summary
+
 DevHub focuses mainly on exploiting vulnerable development tools and internal service enumeration. We first discover an active MCP Inspector service on port 6274 running a version of MCPJam vulnerable to an unauthenticated remote code execution exploit (CVE-2026-23744). Gaining access via this vulnerability drops us into an initial shell as the mcp-dev user. Enumerating internal services reveals a Jupyter server running locally on port 8888, and reading its systemd configuration file allows us to extract a valid server token. We set up an SSH local port forward to reach it and use the token to log in, gaining a shell as the analyst user. We then discover a local MCP server running on port 5000 and analyze its configuration file to uncover a hardcoded API key and a hidden administrative tool. From there, we port forward the internal service and craft an authenticated POST request to dump the root user's private SSH key, granting us full root access.
 ## Recon
-### Nmap Scans
+### Nmap Scan Results
 ```bash
 $ nmap -v -p- --max-retries 1 --min-rate 1000 -oG scans/detailed.gnmap 10.129.161.198
 
