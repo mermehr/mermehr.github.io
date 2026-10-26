@@ -18,7 +18,8 @@ Security practitioner & network specialist with a background in electromechanica
 - Secure Infrastructure Specialist (**CSIS**)
 
 ### Contact & Links
+**Feedback or concerns:** mermehr_osi@proton.me
+
 * **GitHub:** [github.com/mermehr](https://github.com/mermehr)
-* **LinkedIn**: [linkedin.com/in/jonf-public](https:/www.linkedin.com/in/jonf-public)
 * **OffSec**: [portal.offsec.com/public-profile](https://portal.offsec.com/public-profile/e955143a-d73b-466a-92ed-8d45af2f77e0)
 * **HTB**: [profile.hackthebox.com/profile](https://profile.hackthebox.com/profile/019c3f0f-9f7f-7072-8ca0-5dedca1add12?utm_medium=copy_url)
