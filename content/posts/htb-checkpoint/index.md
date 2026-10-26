@@ -15,7 +15,7 @@ tags:
   - kerberos
   - bloodyad
 ---
-## Machine Summary
+## Machine Summary:
 
 Checkpoint focuses on restoring tombstoned Active Directory objects, weaponizing malicious Visual Studio Code extensions, and exploiting Delegated Managed Service Accounts (dMSAs) via a BadSuccessor attack. Starting with assumed breach credentials for `alex.turner`, initial enumeration reveals that LDAP signing is enforced on Windows Server 2025. Enumerating deleted objects using the LDAP tombstone mechanism allows us to locate and restore the `mark.davies` account, which grants write access to the `DevDrop` share. We craft a malicious VSIX package containing a base64-encoded PowerShell reverse shell and upload it to the share, receiving a callback as `ryan.brooks`. Active Directory enumeration shows `ryan.brooks` possesses `GenericWrite` permissions over `svc_deploy`. Using the BadSuccessor vulnerability (CVE-2025-53779), we create a malicious dMSA (`evil-dmsa$`) linked as a successor to `svc_deploy`, allowing us to request a Kerberos service ticket that exposes `svc_deploy`'s RC4 hash. Authenticating as `svc_deploy`, we access the `VMBackups` share to retrieve a virtual memory dump (`.vmem`). Finally, analyzing the dump with Volatility 3 allows us to dump SAM hashes, recovering the Domain Administrator's NT hash and securing full system access.
 ## Recon

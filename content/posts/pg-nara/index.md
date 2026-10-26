@@ -11,12 +11,13 @@ tags:
   - ESC1
   - ADCS
   - DPAPI
+description:
 ---
-## Machine Summary
+## Machine Summary:
 
 Nara focuses on exploiting permissive share permissions to trigger NTLM credential theft and escalating privileges via Active Directory Certificate Services (ADCS). We first identify an SMB service with null authentication enabling read and write access to the `nara` share. Reviewing `Important.txt` indicates active file monitoring by internal users, allowing us to perform an NTLM theft attack using a malicious `.lnk` shortcut file to capture and crack the NetNTLMv2 hash for `Tracy.White`. Domain enumeration with BloodHound reveals that `Tracy.White` possesses `GenericAll` rights over the `Remote Access` group, allowing us to add our account to the group and establish a WinRM session. Once on the host, we locate an encrypted `automation.txt` file and decrypt its DPAPI-protected PowerShell `SecureString` to reveal a cleartext password. Password spraying across domain accounts yields a hit for `Jodie.Summers`, who belongs to the `CA Enrollment` group. Further ADCS enumeration with Certipy reveals an ESC1 vulnerability in the `NaraUser` certificate template. By requesting a certificate with an administrative Subject Alternative Name (SAN), we authenticate via PKINIT to retrieve the Domain Administrator's NTLM hash and obtain full compromise.
 ## Recon
-**Nmap Scan Results:**
+### Nmap Scan Results
 ```bash
 PORT      STATE SERVICE       VERSION
 53/tcp    open  domain        Simple DNS Plus

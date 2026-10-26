@@ -10,20 +10,14 @@ tags:
   - ntlm-theft
   - server-operators
 ---
-## Machine Summary
+## Machine Summary:
 
 Vault Lab demonstrates gaining initial access through NTLMv2 theft using a malicious .lnk attack on a writable SMB share. Due to excessive user permissions, privilege escalation on this machine can be done a number of ways. In this instance we’ll escalate privileges by abusing the **Server Operators** group.
 
 ![[183ff0e7555d7896ab108e0a0dd04dd0.png]]
 
 ## Recon
-### Initial Scan
-
-Initial **Nmap** scans reveals standard Active Directory services on the target.
-```bash
-nmap -Pn -sC -sV -v -oA nmap 192.168.239.172
-```
-
+### Nmap Scan Results
 ```bash
 PORT      STATE SERVICE       VERSION
 53/tcp    open  domain        Simple DNS Plus
@@ -72,6 +66,8 @@ Host script results:
 |   3.1.1:
 |_    Message signing enabled and required
 ```
+
+Initial **Nmap** scans reveals standard Active Directory services on the target.
 ### SMB Enumeration
 
 Initial enumeration of the Server Message Block (SMB) service using guest authentication we'll find a writable share at `//192.168.239.172/DocumentsShare`.

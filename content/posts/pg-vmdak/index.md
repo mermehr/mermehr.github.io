@@ -11,7 +11,7 @@ tags:
   - port-forward
   - disclosure
 ---
-## Machine Summary
+## Machine Summary:
 
 Vmdak focuses mainly on web enumeration and exploitation. We first discover information disclosure on an FTP service, then find a web application on port 9443 with an SQLi vulnerability in its login form. Gaining access to the administration panel exposes another user's credentials stored in a profile description. From there, we exploit a file upload vulnerability via the controlled user's profile picture to land an initial shell.
 
@@ -20,13 +20,7 @@ Enumerating system users allows us to use credential reuse to move laterally and
 ![](faf1f7a101c8d7d7d6cc04f5c84cff9c.png)
 
 ## Recon
-### Nmap Scan
-```bash
-$ nmap -Pn -v -p- --max-retries 1 --min-rate 1000 192.168.167.103
-
-$ nmap -Pn -n -sV -sC -p 21,22,80,9443 192.168.167.103
-```
-
+### Nmap Scan Results
 ```bash
 PORT     STATE SERVICE  VERSION
 21/tcp   open  ftp      vsftpd 3.0.5

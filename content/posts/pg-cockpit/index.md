@@ -9,21 +9,16 @@ tags:
   - sqli
   - sudo
   - web
+description:
 ---
-## Machine Summary
+## Machine Summary:
 
 Cockpit demonstrates how a SQLi vulnerability and insecure credential storage can allow an attacker to move laterally into the system, gaining user-level write access and exploiting weak SSH security to obtain a fully interactive shell. As the compromised user, a sudo backup command containing a wildcard injection vulnerability can then be found and exploited, leading to full root access.
 
 ![](./index-1791757522515.png)
 
 ## Recon
-### Nmap scan
-```bash
-$ nmap -Pn -v -p- --max-retries 1 --min-rate 1000 192.168.210.10
-
-$ nmap -Pn -n -sV -sC -p 22,80,9090 192.168.210.10
-```
-
+### Nmap Scan Results
 ```bash
 PORT     STATE SERVICE VERSION
 22/tcp   open  ssh     OpenSSH 8.2p1 Ubuntu 4ubuntu0.5 (Ubuntu Linux; protocol 2.0)

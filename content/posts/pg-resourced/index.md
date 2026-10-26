@@ -11,22 +11,15 @@ tags:
   - NTDS
   - secretsdump
   - kerberos
+description:
 ---
-## Machine Summary
+## Machine Summary:
 
 Resourced shows how null session enumeration can reveal cleartext password in a user description, this will grant initial low-privileged domain access. Further share enumeration will uncover an old offline password audit containing registry hives and an `ntds.dit` backup, allowing offline credential extraction. Using the extracted hashes to spray the domain yields access to a user account with `GenericAll` control over the Domain Controller. Finally, a Resource-Based Constrained Delegation (RBCD) attack is leveraged via Kerberos S4U extensions to impersonate the Domain Admin and fully compromise the target.
 
 ![](index-1791487551293.png)
 ## Recon
-### Initial Scan
-
-Initial **Nmap** scans reveals standard Active Directory services on the target.
-```bash
-$ nmap -Pn -v -p- --max-retries 1 --min-rate 1000 192.168.247.175
-
-$ nmap -Pn -n -sV -sC -p 53,88,135,139,389,445,464,593,636,3268,3269,3389,5985,9389,49666,49668,49674,49675,49695,49710 192.168.247.175
-```
-
+### Nmap Scan Results
 ```bash
 PORT      STATE SERVICE       VERSION
 53/tcp    open  domain        Simple DNS Plus
@@ -74,6 +67,8 @@ Host script results:
 |   3.1.1:
 |_    Message signing enabled and required
 ```
+
+Initial **Nmap** scans reveals standard Active Directory services on the target.
 
 The scan confirms `RESOURCEDC.resourced.local` is a Domain Controller. Add the target host to `/etc/hosts`.
 ```bash
