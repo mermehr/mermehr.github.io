@@ -10,6 +10,7 @@ tags:
   - windows
   - linux
   - ligolo-ng
+summary: A sample internal penetration test report documenting Active Directory compromise, Windows and Linux attack chains, verified findings, and remediation priorities.
 ---
 ## Introduction
 
